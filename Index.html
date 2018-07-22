@@ -5,54 +5,103 @@
   <title>First site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+	* {
+		box-sizing: border-box;
+	}
+  
 	body {
-	  width:75%;
-	  margin-left:auto;
-	  margin-right:auto;
+	  max-width: 1024px;
+	  margin: auto;
 	}
   
     header , footer {
-	  background:linear-gradient(to right, black, hsl(0,0%,85%));
-	  padding:15px;
+	  background:linear-gradient(to right, hsla(0,0%,0%,0.8), hsla(0,0%,85%,0.8));
+	  padding:10px;
 	  color:white;
+	  position: relative;
 	}
 	
 	nav ul {
-	  padding:5px;
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
 	}
 	
 	nav ul li {
-	  display:inline;
-	  margin:10px;
+	  float: left;
+	}
+	
+	li a.active {
+		background-color: hsl(0,0%,50%);
+		border-radius: 40%;
 	}
 	
 	section {
 	  min-height:600px;
 	  padding:10px;
-	  background-color:hsl(0,0%,50%);
+	  background-color:hsla(0,0%,50%,0.8);
 	  color:hsl(0,0%,95%);
 	}
 	
 	article {
 	  padding:10px;
 	  margin:5px;
-	  background-color:hsl(0,0%,90%);
+	  background-color:hsla(0,0%,90%,0.8);
 	  color:hsl(0,0%,15%);
 	}
+	li a {
+	  display: inline-block;
+	  padding: 10px 15px;
+	  text-decoration: none;
+	  text-align: center;
+	  color: white;
+	}
+	li a:hover {
+	  color:hsl(0,0%,85%);
+	}
+	.img_container {
+		float: left;
+		width: 33.33%;
+		padding: 2px;
+		height: 200px;
+		background-size: cover;
+		background-position: center;
+		background-clip: content-box;
+		background-repeat: no-repeat;
+	}
+	.clearfix::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
 	a {
-	  text-decoration:none;
-	  color:white;
+	  text-decoration: none;
+	  text-align: center;
+	  color: white;
 	}
 	a:hover {
 	  color:hsl(0,0%,85%);
 	}
+	
+	@media screen and (max-width: 1024px) {
+		body {width: 100%;}
+		.img_container {width: 50%;}
+	}
+	
+	@media screen and (max-width: 600px) {
+		body {width: 100%;}
+		.img_container {width: 100%;}
+		nav ul li {float: none; text-align: center;}
+		li a.active {background-color: hsl(0,0%,30%);}
+	}
   </style>
 </head>
 <body style="background-image:url(images/pozadina.jpg);background-attachment:fixed;background-size:cover;">
-	<header><h1>Games, games, and more games...</h1>
+	<header><h1 style="margin-left:30px;">Games, games, and more games...</h1>
 	<nav>
 	  <ul>
-	    <li><a href="#Home">Home</a></li>
+	    <li><a class="active" href="#Home">Home</a></li>
 		<li><a href="#Games">Games</a></li>
 		<li><a href="#Contact Us">Contact Us</a></li>
 		<li><a href="#About">About</a></li>
@@ -61,18 +110,17 @@
 	</header>
 	<section>
 	  <h2>Hello and Welcome!!!</h2>
-	  <article>
+	  <article class="clearfix">
 		<h3>What's New</h3>
 		<p> This year at E3 almost all biggest game companies presented their new projects 
 		and also updates on ones they are already working on. Some were good, some were less than good
 		but in the end what's important is that we are getting more and more games to try and play.</p>
-		<p>Here are some of the trailers shown that might look interesting:</p> 
-		<iframe width="280" height="160" src="https://www.youtube.com/embed/SC8rQioaHUc" 
-		frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<iframe width="280" height="160" src="https://www.youtube.com/embed/d_a0WnCa6I8"
-		frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<iframe width="280" height="160" src="https://www.youtube.com/embed/tOdZvUGnGeI"
-		frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<p>Here are some of the games presented that might look interesting:</p> 
+		<div class="img_container" style="background-image:url(images/RE2.png)"></div>
+		<div class="img_container" style="background-image:url(images/lastofus2.png)"></div>
+		<div class="img_container" style="background-image:url(images/DS.png)"></div>
+		<br style="clear:both">
+		<p>For more info , refer to <strong>Games</strong> section</p> 
 	  </article>
 	</section>
 	<footer style="text-align:center">
