@@ -2,4 +2,5 @@
 
 1. Added separate page for all games listed in "games" section
 2. Completed about , contact and games pages
+3. Added .CSS file 
 
